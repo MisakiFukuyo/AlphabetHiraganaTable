@@ -3,7 +3,7 @@ AlphabetHiraganaTable
 
 アルファベット&lt;=&gt;ひらがなの相互変換テーブルを作ります。探すのも手間だったうえに急に必要になったので作りました。
 
-結果だけ必要な人はoutput/table.txtを使うと良いと思います。
+結果だけ必要な人は`output/table.txt`を使うと良いと思います。
 
 現状で一般的なIMEでアルファベット入力した際に可能な入力の組み合わせがすべて入っているはずです。
 
@@ -13,7 +13,7 @@ AlphabetHiraganaTable
 
 …というのもなんですので、簡単に説明します。
 
-Program.exe input
+    Program.exe input
 
 で、テキストエディタへの**入力をエミュレート**して、**26 + 26x26 + 26x26x26キー分すべてのパターンの入力をキーボード操作をエミュレートして打ちます**。非常に時間がかかるので気を付けてください。だいたい**30"分"前後**かかります。覚悟を決めてから入力を開始させてください。入力行がおかしい場合はWindows コントローラパネルから入力と表示の時間間隔を変えると良いです。
 
@@ -21,22 +21,22 @@ Program.exe input
 
 その後、テキストエディタに自動で打ち込んだファイルに対応するアルファベット表を作ります。
 
-Program.exe write alphabetfile.txt
+    Program.exe write alphabetfile.txt
 
 で、書き込みます。
 
 その後、先に作った自動入力の2つのファイルとアルファベット票を突合せます。
 
-Program.exe read alphabetfile.txt hiraganafile.txt > level1table.txt
+    Program.exe read alphabetfile.txt hiraganafile.txt > level1table.txt
 
 です。標準出力に出力されるのでリダイレクトしてください。このリダイレクトされたファイルをlevel1table.txtとします。
 
 このままだと不要な文字が入っていますので、フィルタします。
 
-Program.exe level2 level1table.txt > level2table.txt
+    Program.exe level2 level1table.txt > level2table.txt
 
 です。同様に標準出力に出力されます。
 
 これ以上はプログラムでフィルタするのが非常に難しい領域だと私的には判断しました。
 
-これに目視で不要な入力文字(ala あぁ)などですを取り除いたものがoutput/table.txtです。
+これに目視で不要な入力文字(ala あぁ)などですを取り除いたものが`output/table.txt`です。
